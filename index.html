@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cat Search</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="app-title">Cat Search</h1>
+      <div class="select-container">
+        <div class="select-wrapper">
+          <button id="dropdown-button" class="dropdown-button">
+            請選擇品種
+          </button>
+          <div id="options" class="multi-select-dropdown__options hidden">
+            <div class="multi-select-dropdown__options_option">
+              <input type="checkbox" />
+              <label class="multi-select-dropdown__label">選項一</label>
+            </div>
+            <div class="multi-select-dropdown__options__option">
+              <input type="checkbox" />
+              <label class="multi-select-dropdown__label">選項二</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 排序 -->
+        <div class="select-wrapper">
+          <select name="order-select" id="order-select" class="order-select">
+            <option value="DESC">由新到舊</option>
+            <option value="DESC">由舊到新</option>
+            <option value="DESC">隨機</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
