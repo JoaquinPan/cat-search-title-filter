@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <title>Cat Search</title>
+    <script type="module" src="js/index.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -43,36 +44,36 @@
       </div>
       <div class="image-grid" id="image-grid">
         <div class="col" id="col1">
-          <div class="card">
+          <!-- <div class="card">
             <img
               src="https://cdn2.thecatapi.com/images/0SxW2SQ_S.jpg"
               class="card__img"
             />
             <p>York Chocolate</p>
-          </div>
+          </div> -->
         </div>
         <div class="col" id="col2">
-          <div class="card">
+          <!-- <div class="card">
             <img
               src="https://cdn2.thecatapi.com/images/7_rjG2-pc.jpg"
               class="card__img"
             />
             <p>York Chocolate</p>
-          </div>
+          </div> -->
         </div>
         <div class="col" id="col3">
-          <div class="card">
+          <!-- <div class="card">
             <img
               src="https://cdn2.thecatapi.com/images/7pCnjXd47.jpg"
               class="card__img"
             />
             <p>York Chocolate</p>
-          </div>
+          </div> -->
         </div>
       </div>
       <button class="load-more-button" id="load-more">Load more...</button>
     </div>
-    <div class="drawer open" id="drawer">
+    <div class="drawer" id="drawer">
       <img
         src="https://cdn2.thecatapi.com/images/7pCnjXd47.jpg"
         class="drawer__img"
@@ -97,42 +98,39 @@
         </div>
         <div class="drawer__age-weight__vertical-sep"></div>
         <div class="drawer__age-weight__data">
-            <p class="drawer__age-weight__number" id="drawer-lifespan">5-9</p>
-            <p class="drawer__age-weight__label">公斤</p>
-          </div>
+          <p class="drawer__age-weight__number" id="drawer-lifespan">5-9</p>
+          <p class="drawer__age-weight__label">公斤</p>
+        </div>
       </div>
       <div class="drawer__horizontal-sep"></div>
 
       <div class="drawer__personality">
         <p class="drawer__personality__title">性格</p>
         <div class="drawer__personality__tags" id="temperament">
-            <span class="drawer__personality__tags__tag">親人</span>
-            <span class="drawer__personality__tags__tag">友善</span>
-            <span class="drawer__personality__tags__tag">活潑</span>
+          <span class="drawer__personality__tags__tag">親人</span>
+          <span class="drawer__personality__tags__tag">友善</span>
+          <span class="drawer__personality__tags__tag">活潑</span>
         </div>
       </div>
 
       <div class="drawer__stats" id="drawer__stats">
         <div class="drawer__stats__item">
-            <p class="drawer__stats__item__title" id="intelligence">智力</p>
-            <div class="drawer__stats__item__bar">
-                <div class="drawer__stats__item__bar__fill"></div>
-
-            </div>
+          <p class="drawer__stats__item__title" id="intelligence">智力</p>
+          <div class="drawer__stats__item__bar">
+            <div class="drawer__stats__item__bar__fill"></div>
+          </div>
         </div>
         <div class="drawer__stats__item">
-            <p class="drawer__stats__item__title" id="intelligence">親密度</p>
-            <div class="drawer__stats__item__bar">
-                <div class="drawer__stats__item__bar__fill"></div>
-
-            </div>
+          <p class="drawer__stats__item__title" id="intelligence">親密度</p>
+          <div class="drawer__stats__item__bar">
+            <div class="drawer__stats__item__bar__fill"></div>
+          </div>
         </div>
         <div class="drawer__stats__item">
-            <p class="drawer__stats__item__title" id="intelligence">活力</p>
-            <div class="drawer__stats__item__bar">
-                <div class="drawer__stats__item__bar__fill"></div>
-
-            </div>
+          <p class="drawer__stats__item__title" id="intelligence">活力</p>
+          <div class="drawer__stats__item__bar">
+            <div class="drawer__stats__item__bar__fill"></div>
+          </div>
         </div>
       </div>
     </div>
