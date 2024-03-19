@@ -5,7 +5,10 @@ import {
   addDropDownListener,
   renderOptions,
   clearImages,
-  addSelectOrderListener
+  addSelectOrderListener,
+  addLoadMoreButtonListener,
+  enableLoadMoreButton,
+  disableLoadMoreButton
 } from "./dom.js";
 
 const pageSize = 12;
@@ -20,9 +23,16 @@ async function loadCats(limit, page, order, breedIds = []) {
   catList.push(...list);
 
   renderCats(list);
+  if (list.length < limit) {
+    // no more cats
+    disableLoadMoreButton();
+    return false;
+  }
+
+  return true;
 }
 
-function handleBreedOptionChange(e) {
+async function handleBreedOptionChange(e) {
   const changedOption = e.target;
   if (changedOption.checked) {
     selectedOptions.push(changedOption.value);
@@ -32,7 +42,12 @@ function handleBreedOptionChange(e) {
     );
   }
   clearImages();
-  loadCats(pageSize, page, order, selectedOptions);
+  enableLoadMoreButton();
+  page = 1;
+  const hasNextPage = await loadCats(pageSize, page, order, selectedOptions);
+  if (hasNextPage) {
+    page++;
+  }
 }
 
 async function loadBreedOptions() {
@@ -43,16 +58,30 @@ async function loadBreedOptions() {
 function addListeners() {
   addDropDownListener();
   addCloseDropdownListener();
-  addSelectOrderListener((e) => {
+  addSelectOrderListener(async (e) => {
     order = e.target.value;
     clearImages();
-    loadCats(pageSize, page, order, selectedOptions);
+    enableLoadMoreButton();
+    page = 1;
+    const hasNextPage = await loadCats(pageSize, page, order, selectedOptions);
+    if (hasNextPage) {
+      page++;
+    }
+  });
+
+  addLoadMoreButtonListener(async () => {
+    const hasNextPage = await loadCats(pageSize, page, order, selectedOptions);
+    if (hasNextPage) {
+      page++;
+    }
   });
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
   loadBreedOptions();
-  await loadCats(pageSize, page, order, selectedOptions);
-
+  const hasNextPage = await loadCats(pageSize, page, order, selectedOptions);
+  if (hasNextPage) {
+    page++;
+  }
   addListeners();
 });
