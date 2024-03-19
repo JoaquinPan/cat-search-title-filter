@@ -33,3 +33,27 @@ export function createBreedOption(breed, handleBreedOptionChange) {
   return option;
 }
 
+export function createTempItem(temperament) {
+  const tempItem = document.createElement("span");
+  tempItem.className = "drawer__personality__tags__tag";
+  tempItem.innerHTML = temperament;
+  return tempItem;
+}
+
+export function createDrawewrStatsItem(displayName, score) {
+  const statsItem = document.createElement("div");
+  statsItem.className = "drawer__stats__item";
+  const itemTitle = document.createElement("span");
+  itemTitle.className = "drawer__stats__item__titel";
+  itemTitle.innerHTML = `${displayName}:`;
+  const bar = document.createElement("div");
+  bar.className = "drawer__stats__item__bar";
+  const fill = document.createElement("div");
+  fill.className = "drawer__stats__item__bar__fill";
+  fill.style.width = `${score * 20}%`;
+  bar.appendChild(fill);
+  statsItem.appendChild(itemTitle);
+  statsItem.appendChild(bar);
+
+  return statsItem;
+}

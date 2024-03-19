@@ -8,7 +8,8 @@ import {
   addSelectOrderListener,
   addLoadMoreButtonListener,
   enableLoadMoreButton,
-  disableLoadMoreButton
+  disableLoadMoreButton,
+  addCloseDrawerListner,
 } from "./dom.js";
 
 const pageSize = 12;
@@ -58,6 +59,7 @@ async function loadBreedOptions() {
 function addListeners() {
   addDropDownListener();
   addCloseDropdownListener();
+  addCloseDrawerListner();
   addSelectOrderListener(async (e) => {
     order = e.target.value;
     clearImages();
