@@ -9,9 +9,13 @@ export function fetchCats(limit, page, order, breedIds = []) {
   url.searchParams.append("page", page);
   url.searchParams.append("api_key", apiKey);
 
-  if (breedIds.length > 0) {
+   if (breedIds.length > 0) {
     url.searchParams.append("breed_ids", breedIds.join(","));
   }
 
   return fetch(url).then((res) => res.json());
+}
+
+export function fetchBreeds() {
+  return fetch("https://api.thecatapi.com/v1/breeds").then((res) => res.json());
 }
