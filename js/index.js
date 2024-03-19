@@ -4,10 +4,11 @@ import {
   addCloseDropdownListener,
   addDropDownListener,
   renderOptions,
-  clearImages
+  clearImages,
+  addSelectOrderListener
 } from "./dom.js";
 
-const pageSize = 12
+const pageSize = 12;
 let order = "DESC";
 let page = 1;
 let selectedOptions = [];
@@ -42,6 +43,11 @@ async function loadBreedOptions() {
 function addListeners() {
   addDropDownListener();
   addCloseDropdownListener();
+  addSelectOrderListener((e) => {
+    order = e.target.value;
+    clearImages();
+    loadCats(pageSize, page, order, selectedOptions);
+  });
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
